@@ -1,9 +1,10 @@
 package main
 
 import (
+	"log"
+
 	"github.com/gocolly/colly"
 	_ "github.com/mattn/go-sqlite3"
-	"log"
 )
 
 type ScrappedData struct {
@@ -25,7 +26,7 @@ func main() {
 
 	c.OnScraped(Response)
 
-	err := c.Visit("https://scrapeme.live/shop/page/3/")
+	err := c.Visit("https://scrapeme.live/shop/page/1/")
 	if err != nil {
 		log.Fatal(err)
 	}
