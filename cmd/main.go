@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/gocolly/colly"
@@ -24,18 +25,16 @@ func main() {
 
 	c.OnHTML("li.product", HTMLElement)
 
-	c.OnScraped(Response)
+	c.OnScraped(func(response *colly.Response) {
+		WriteDataToDatabase(PokemonArr)
+	})
 
-	err := c.Visit("https://scrapeme.live/shop/page/1/")
+	err := c.Visit(fmt.Sprintf("https://scrapeme.live/shop/page/7/"))
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	SaveImgToFile()
-}
-
-func Response(response *colly.Response) {
-	WriteDataToDatabase(PokemonArr)
 }
 
 func HTMLElement(elm *colly.HTMLElement) {

@@ -12,7 +12,7 @@ func ProcessSaving(data ScrappedData) {
 	filename := fmt.Sprintf("img/%s.jpg", data.Name)
 
 	if _, err := os.Stat(filename); err == nil {
-		fmt.Printf("File %s already exists. Skipping download.\n", filename)
+		fmt.Printf("File %s already exists. Skipping...", filename)
 		return
 	} else if !os.IsNotExist(err) {
 		log.Fatal(err)
