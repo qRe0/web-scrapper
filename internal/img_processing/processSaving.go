@@ -1,4 +1,4 @@
-package main
+package img_processing
 
 import (
 	"fmt"
@@ -6,9 +6,11 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	dbs "web-scrapper/internal/db_structure"
 )
 
-func ProcessSaving(data ScrappedData) {
+func ProcessSaving(data dbs.ScrappedData) {
 	filename := fmt.Sprintf("img/%s.jpg", data.Name)
 
 	if _, err := os.Stat(filename); err == nil {

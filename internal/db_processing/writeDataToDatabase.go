@@ -1,12 +1,14 @@
-package main
+package db_processing
 
 import (
 	"database/sql"
 	"errors"
 	"log"
+
+	dbs "web-scrapper/internal/db_structure"
 )
 
-func WriteDataToDatabase(arr []ScrappedData) {
+func WriteDataToDatabase(arr []dbs.ScrappedData) {
 	dbPath := "database/scrapped_data.db"
 
 	db, err := sql.Open("sqlite3", dbPath)
