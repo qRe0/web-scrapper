@@ -9,7 +9,7 @@ import (
 )
 
 func WriteDataToDatabase(arr []dbs.ScrappedData) {
-	dbPath := "database/scrapped_data.db"
+	dbPath := "internal/database/scrapped_data.db"
 
 	db, err := sql.Open("sqlite3", dbPath)
 	if err != nil {
