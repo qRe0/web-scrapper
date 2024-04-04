@@ -1,13 +1,15 @@
-package main
+package img_processing
 
 import (
 	"database/sql"
 	"fmt"
 	"log"
+
+	dbs "web-scrapper/internal/db_structure"
 )
 
 func SaveImgToFile() {
-	dbPath := "database/scrapped_data.db"
+	dbPath := "internal/database/scrapped_data.db"
 
 	db, err := sql.Open("sqlite3", dbPath)
 	if err != nil {
@@ -36,7 +38,7 @@ func SaveImgToFile() {
 	}(dbRow)
 
 	for dbRow.Next() {
-		var data ScrappedData
+		var data dbs.ScrappedData
 		err = dbRow.Scan(&data.Name, &data.Img)
 		if err != nil {
 			fmt.Println(err)
