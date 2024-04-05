@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	"log"
-
 	"github.com/gocolly/colly"
 	_ "github.com/mattn/go-sqlite3"
+	"log"
+
 	dbp "web-scrapper/internal/db_processing"
 	dbs "web-scrapper/internal/db_structure"
 	imgp "web-scrapper/internal/img_processing"
@@ -25,10 +25,7 @@ func main() {
 		dbp.WriteDataToDatabase(PokemonArr)
 	})
 
-	err := c.Visit(fmt.Sprintf("https://scrapeme.live/shop/page/7/"))
-	if err != nil {
-		log.Fatal(err)
-	}
+	RangeScrapping(c, 21, 21)
 
 	imgp.SaveImgToFile()
 }
@@ -42,4 +39,13 @@ func HTMLElement(elm *colly.HTMLElement) {
 	toScrap.Img = elm.ChildAttr("img", "src")
 
 	PokemonArr = append(PokemonArr, toScrap)
+}
+
+func RangeScrapping(c *colly.Collector, startPage, endPage int) {
+	for i := startPage; i <= endPage; i++ {
+		err := c.Visit(fmt.Sprintf("https://scrapeme.live/shop/page/%d/", i))
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
 }
