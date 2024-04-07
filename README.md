@@ -22,14 +22,15 @@ web-scrapper
 ├── cmd
 │   └── main.go
 ├── img
-│   ├── ...
+│   └── ...
 ├── internal
 │   ├── database
 │   │   └── scrapped_data.db
-│   ├── db-processing
-│   │   └── writeDataToDatabase.go
-│   ├── db-structure
-│   │   └── struct.go
+│   ├── db-handler
+│   │   ├── db-processing
+│   │   │   └── writeDataToDatabase.go
+│   │   └── db-structure
+│   │       └── struct.go
 │   ├── img-processing
 │   │   ├── processSaving.go
 │   │   └── saveImgToFile.go
@@ -40,6 +41,7 @@ web-scrapper
 │           └── rangeScrapping.go
 ├── LICENSE
 └── README.md
+
 ```
 
 ## Additional notes

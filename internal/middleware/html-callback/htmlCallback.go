@@ -2,7 +2,7 @@ package html_callback
 
 import (
 	"github.com/gocolly/colly"
-	dbs "web-scrapper/internal/db-structure"
+	dbs "web-scrapper/internal/db-handler/db-structure"
 )
 
 var PokemonArr []dbs.ScrappedData
