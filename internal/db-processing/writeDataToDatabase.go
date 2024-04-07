@@ -5,7 +5,7 @@ import (
 	"errors"
 	"log"
 
-	dbs "web-scrapper/internal/db_structure"
+	dbs "web-scrapper/internal/db-structure"
 )
 
 func WriteDataToDatabase(arr []dbs.ScrappedData) {

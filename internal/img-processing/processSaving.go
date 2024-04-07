@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	dbs "web-scrapper/internal/db_structure"
+	dbs "web-scrapper/internal/db-structure"
 )
 
 func ProcessSaving(data dbs.ScrappedData) {

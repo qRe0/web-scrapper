@@ -15,15 +15,31 @@ This Go language program allows you to retrieve elements from a browser page and
 4. `internal/db_structure_struct.go` - .go file with structure to handle data from target website
 5. `internal/img_processing/processSaving.go` - .go file to save image from link to `.jpg` file
 6. `internal/img_processing/saveImgToFile.go` - .go file to act with DB field `img` and call `processSaving` function
+7. `internal/middleware/html-callback/htmlCallback.go` - .go file with `HTML` call-back to scrapping site
+8. `internal/middleware/range-scrap/rangeScrapping.go` - .go file with func for range scrapping (multiple pages of website)
 ```shell
-web_scrapper
-├───cmd
-├───img
-└───internal
-    ├───database
-    ├───db_processing
-    ├───db_structure
-    └───img_processing
+web-scrapper
+├── cmd
+│   └── main.go
+├── img
+│   ├── ...
+├── internal
+│   ├── database
+│   │   └── scrapped_data.db
+│   ├── db-processing
+│   │   └── writeDataToDatabase.go
+│   ├── db-structure
+│   │   └── struct.go
+│   ├── img-processing
+│   │   ├── processSaving.go
+│   │   └── saveImgToFile.go
+│   └── middleware
+│       ├── html-callback
+│       │   └── htmlCallback.go
+│       └── range-scrap
+│           └── rangeScrapping.go
+├── LICENSE
+└── README.md
 ```
 
 ## Additional notes

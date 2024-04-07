@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	dbs "web-scrapper/internal/db_structure"
+	dbs "web-scrapper/internal/db-structure"
 )
 
 func SaveImgToFile() {
